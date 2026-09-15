@@ -1,5 +1,5 @@
 /* =========================================================
-   LEBAT MARITIME — front-end behaviour
+   PRAL — POWER RIDE AFRICA LOGISTICS — front-end behaviour
    Vanilla JS, no dependencies.
    ========================================================= */
 (function () {
@@ -56,7 +56,7 @@
       vessel: "MV Nordwind Trader",
       voyage: "v.407W",
       service: "Feeder North",
-      origin: "Haiphong, VN",
+      origin: "Jebel Ali, AE",
       equipment: "2 × 20′ GP",
       cargo: "Apparel, on pallets",
       eta: "Delivered 13 Sep · POD signed",
@@ -111,11 +111,11 @@
     );
   }
 
-  /* ---------------- Port clock (UTC+7) ---------------- */
+  /* ---------------- Port clock (UTC+3, Mombasa) ---------------- */
   function portTime() {
     const now = new Date();
     const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-    return new Date(utc + 7 * 3600 * 1000);
+    return new Date(utc + 3 * 3600 * 1000);
   }
   const two = (n) => String(n).padStart(2, "0");
   function tickClock() {
@@ -180,6 +180,9 @@
     const decimals = parseInt(el.dataset.decimals || "0", 10);
     if (el.dataset.format === "compact") {
       return value >= 1000 ? Math.round(value / 1000) + "k" : String(Math.round(value));
+    }
+    if (el.dataset.format === "group") {
+      return Math.round(value).toLocaleString("en-KE");
     }
     return decimals ? value.toFixed(decimals) : String(Math.round(value));
   }

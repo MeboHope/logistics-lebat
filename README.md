@@ -1,33 +1,38 @@
-# logistics-lebat
+# logistics-lebat — PRAL · Power Ride Africa Logistics
 
-**Lebat Maritime** — a responsive marketing + operations website for port import logistics.
-Serif (Fraunces) and sans (Inter) are paired for an elegant editorial style, and the layout
-adapts from small phones to wide desktop screens.
+A responsive marketing + operations website for **PRAL (Power Ride Africa Logistics)** —
+port import logistics out of the Port of Mombasa (Kilindini Harbour), Kenya.
+
+Design language: **royal blue + red + white**, taken from the PRAL brand truck
+(`assets/img/pral-truck.jpg`), with an elegant serif/sans pairing — **Fraunces** for
+display type and **Inter** for UI/body — adapting cleanly from phones to wide desktops.
+
+> **Brand image note:** `assets/img/pral-truck.jpg` is a generated recreation of the PRAL
+> truck photo (the original attachment never reached the workspace filesystem). To use the
+> original photo, simply overwrite that file — every reference already points at it.
 
 ## Run it
 
-No build step, no dependencies:
+No build step:
 
 ```bash
 npm start          # serves on http://0.0.0.0:3000 (PORT env optional)
 ```
 
-or simply `node server.mjs`.
-
 ## What's inside
 
 | Section        | Notes                                                                 |
 | -------------- | --------------------------------------------------------------------- |
-| Hero           | Full-bleed port photography, quick shipment-track hand-off             |
-| Stats          | Animated counters (TEU, dwell, first-pass rate, berths)                |
+| Hero           | PRAL truck feature image, slogan headline, quick shipment-track       |
+| Stats          | Animated counters (TEU, dwell, first-pass rate, fleet)                |
 | Services       | Six import services: stevedoring → customs → CFS → bonded → reefer → haulage |
-| Process        | Five-step import timeline with scroll-highlighted milestones           |
-| Tracking       | Working demo tracker — container or B/L numbers, milestone timeline    |
-| Vessel board   | Terminal schedule board with live port clock (UTC+7)                   |
-| Cold chain     | Feature split section with reefer photography                          |
-| Haulage        | Reverse split section on final-mile delivery                           |
-| Rates          | Published rate card table                                              |
-| Quote          | Validated quote-request form with success reference                    |
+| Process        | Five-step import timeline with scroll-highlighted milestones          |
+| Tracking       | Working demo tracker — container or B/L numbers, milestone timeline   |
+| Vessel board   | Kilindini schedule board with live port clock (UTC+3)                 |
+| Cold chain     | Feature split section with reefer photography                         |
+| Haulage        | Reverse split section on final-mile delivery                          |
+| Rates          | Published rate card table                                             |
+| Quote          | Validated quote-request form with success reference                   |
 
 ### Demo tracking references
 
@@ -39,11 +44,10 @@ or simply `node server.mjs`.
 ## Stack
 
 - Hand-written semantic HTML, CSS custom properties, vanilla JS (no frameworks).
-- Self-hosted variable fonts: **Fraunces** (serif display) + **Inter** (sans UI),
-  served as `woff2` from `assets/fonts/` — no CDN required.
-- `server.mjs` is a zero-dependency static server (correct MIME types, 404 page).
-- Mobile-first responsive breakpoints (nav collapses under 920 px, grids reflow,
-  tables scroll horizontally on narrow screens), `prefers-reduced-motion` respected.
+- Self-hosted variable fonts: **Fraunces** (serif) + **Inter** (sans) in `assets/fonts/`.
+- `server.mjs` — zero-dependency static server (correct MIME types, 404 page).
+- Responsive breakpoints: nav collapses under 920 px, grids reflow, tables scroll
+  horizontally on narrow screens; `prefers-reduced-motion` respected.
 
 ## Structure
 
@@ -51,10 +55,12 @@ or simply `node server.mjs`.
 index.html            single-page site
 server.mjs            static file server
 assets/
-  css/styles.css      design tokens + all styles
-  js/main.js          clocks, nav, reveals, counters, tracker, quote form
+  css/styles.css      design tokens (PRAL palette) + all styles
+  js/main.js          clocks (UTC+3), nav, reveals, counters, tracker, quote form
   fonts/              self-hosted Fraunces & Inter variable woff2
-  img/                photography + favicon
+  img/                pral-truck.jpg (brand feature), hero-port.jpg, reefer.jpg,
+                      haulage.jpg, favicon.svg
+tests/smoke.mjs       jsdom smoke test
 ```
 
 ## Testing
@@ -63,7 +69,6 @@ assets/
 npm i && npm test
 ```
 
-`tests/smoke.mjs` is a jsdom smoke test that executes the real `assets/js/main.js`
-against the real `index.html`. It covers the shipment tracker lookups (container +
-B/L refs, error state), quote-form validation and success reference, port clocks,
-the mobile nav toggle and the hero→tracker hand-off.
+`tests/smoke.mjs` executes the real `assets/js/main.js` against the real `index.html`
+in jsdom: tracker lookups (container + B/L refs, error state), quote-form validation
+and success reference, port clocks, mobile nav toggle, hero→tracker hand-off.
