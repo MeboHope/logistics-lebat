@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lebat Maritime — Port Import Logistics</title>
+  <meta name="description" content="Lebat Maritime runs port imports end to end: vessel discharge, customs clearance, bonded storage and final-mile delivery at the Port of Lebat." />
+  <meta name="theme-color" content="#0b1b26" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/fraunces-latin-opsz-normal.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin-wght-normal.woff2" crossorigin />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <noscript>
+    <style>.reveal { opacity: 1; transform: none; }</style>
+  </noscript>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ TOP UTILITY BAR ============ -->
+  <div class="topbar" role="region" aria-label="Port status">
+    <div class="container topbar__inner">
+      <p class="topbar__item"><span class="dot dot--open" aria-hidden="true"></span>Gate 4 — Open</p>
+      <p class="topbar__item">Yard utilisation 72%</p>
+      <p class="topbar__item">Tide +1.8 m</p>
+      <p class="topbar__item topbar__clock"><span class="topbar__label">Port time</span> <time id="port-clock" datetime="">--:--:--</time> UTC+7</p>
+    </div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-head" id="site-head">
+    <div class="container site-head__inner">
+      <a class="brand" href="#top" aria-label="Lebat Maritime home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="16" cy="6" r="2.6"/>
+            <path d="M16 9v17"/>
+            <path d="M9 13h14"/>
+            <path d="M5 20c1.5 5 6 7.5 11 7.5S25.5 25 27 20"/>
+            <path d="M5 20l-2.5-1.5M5 20l3 .8M27 20l2.5-1.5M27 20l-3 .8"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">Lebat</span>
+          <span class="brand__sub">Maritime · Port Imports</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#services">Services</a></li>
+          <li><a class="nav__link" href="#process">Process</a></li>
+          <li><a class="nav__link" href="#tracking">Tracking</a></li>
+          <li><a class="nav__link" href="#vessels">Vessel board</a></li>
+          <li><a class="nav__link" href="#rates">Rates</a></li>
+        </ul>
+        <a class="btn btn--solid nav__cta" href="#quote">Request a quote</a>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="hero__media" aria-hidden="true">
+        <img src="assets/img/hero-port.jpg" alt="" fetchpriority="high" />
+        <div class="hero__scrim"></div>
+      </div>
+      <div class="container hero__inner">
+        <p class="eyebrow eyebrow--light reveal">Port of Lebat · Est. 1962 · Terminal 7</p>
+        <h1 class="hero__title reveal">The quiet science of<br />bringing cargo <em>ashore</em>.</h1>
+        <p class="hero__lede reveal">Lebat runs your imports end to end — discharge, customs, storage and final delivery — with the calm of a schedule kept.</p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--brass" href="#tracking">Track a shipment</a>
+          <a class="btn btn--ghost" href="#services">Explore services</a>
+        </div>
+        <form class="hero__track reveal" id="hero-track" autocomplete="off">
+          <label class="hero__track-label" for="hero-track-input">Container or B/L no.</label>
+          <input id="hero-track-input" name="ref" type="text" placeholder="e.g. LBTU 482913-7" spellcheck="false" />
+          <button class="btn btn--solid" type="submit">Track</button>
+        </form>
+      </div>
+      <div class="hero__foot container">
+        <p class="hero__foot-note">Scroll</p>
+        <span class="hero__foot-line" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="stats" aria-label="Key figures">
+      <div class="container stats__grid">
+        <div class="stat reveal">
+          <p class="stat__num"><span data-count="486000" data-format="compact">0</span></p>
+          <p class="stat__label">TEU handled last year</p>
+        </div>
+        <div class="stat reveal">
+          <p class="stat__num"><span data-count="2.4" data-decimals="1">0</span><span class="stat__unit">days</span></p>
+          <p class="stat__label">Average port dwell</p>
+        </div>
+        <div class="stat reveal">
+          <p class="stat__num"><span data-count="99.2" data-decimals="1">0</span><span class="stat__unit">%</span></p>
+          <p class="stat__label">Customs first-pass rate</p>
+        </div>
+        <div class="stat reveal">
+          <p class="stat__num"><span data-count="11">0</span></p>
+          <p class="stat__label">Deep-water berths</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">What we do</p>
+          <h2 class="section__title">One partner from <em>keel to kerb</em>.</h2>
+          <p class="section__lede">Every import that touches our quay moves through a single plan, a single manifest and a single accountable team.</p>
+        </header>
+
+        <div class="cards">
+          <article class="card reveal">
+            <p class="card__no">01</p>
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><circle cx="12" cy="4.6" r="1.7"/><path d="M7 8h10"/><path d="M4 14c1.2 4.2 4.4 6.4 8 6.4s6.8-2.2 8-6.4"/><path d="M4 14l-2-1.2M4 14l2.4.6M20 14l2-1.2M20 14l-2.4.6"/></svg>
+            </span>
+            <h3 class="card__title">Vessel operations &amp; stevedoring</h3>
+            <p class="card__body">Berth windows, crane allocation and discharge sequencing planned against tide and traffic — your boxes on the quay in hours, not days.</p>
+            <p class="card__meta">Berth planning · Lashing · Tally</p>
+          </article>
+
+          <article class="card reveal">
+            <p class="card__no">02</p>
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6l7-3z"/><path d="M9 11.5l2.2 2.2L15.5 9"/></svg>
+            </span>
+            <h3 class="card__title">Customs brokerage &amp; clearance</h3>
+            <p class="card__body">Pre-arrival HS review, accurate duty positions and same-day declarations. Inspections attended in person, permits chased so you don’t have to.</p>
+            <p class="card__meta">HS classification · Duties · Permits</p>
+          </article>
+
+          <article class="card reveal">
+            <p class="card__no">03</p>
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5v11H3V9z"/><path d="M3 9h18"/><path d="M9 20v-6h6v6"/><path d="M9 17h6"/></svg>
+            </span>
+            <h3 class="card__title">Container freight station</h3>
+            <p class="card__body">Devanning, sorting, labelling and cross-docking under roof. LCL consignments rebuilt into clean, delivery-ready pallets.</p>
+            <p class="card__meta">Devanning · Cross-dock · LCL</p>
+          </article>
+
+          <article class="card reveal">
+            <p class="card__no">04</p>
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V8l5 3V8l5 3V8l6 3.5V20H4z"/><path d="M8 20v-4h4v4"/><path d="M2 20h20"/></svg>
+            </span>
+            <h3 class="card__title">Bonded &amp; general warehousing</h3>
+            <p class="card__body">Duty-suspended storage metres from the quay, with live stock visibility and cycle-accurate counts. Pay duty only when the cargo moves.</p>
+            <p class="card__meta">Bonded storage · Inventory · QC</p>
+          </article>
+
+          <article class="card reveal">
+            <p class="card__no">05</p>
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M12 2l-3 3M12 2l3 3M12 22l-3-3M12 22l3-3"/><path d="M4 7l16 10M4 7l4-.8M4 7l.8 4M20 17l-4 .8M20 17l-.8-4"/><path d="M20 7L4 17M20 7l-4-.8M20 7l-.8 4M4 17l4 .8M4 17l.8-4"/></svg>
+            </span>
+            <h3 class="card__title">Cold chain &amp; reefer</h3>
+            <p class="card__body">Monitored reefer plugs from ship to store. Pharma-grade logging, perishables prioritised, alarms answered at 3 a.m. by a person.</p>
+            <p class="card__meta">Reefer plugs · 24/7 logging · Pharma</p>
+          </article>
+
+          <article class="card reveal">
+            <p class="card__no">06</p>
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h12v10H2z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="6.5" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>
+            </span>
+            <h3 class="card__title">Inland haulage &amp; final mile</h3>
+            <p class="card__body">Gate-out to doorstep on our own chassis and trusted partners. Scheduled slots, live GPS and proof of delivery the moment wheels stop.</p>
+            <p class="card__meta">Drayage · FTL / LTL · POD</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="section section--dark" id="process">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow eyebrow--brass">How an import moves</p>
+          <h2 class="section__title">Five movements, <em>one steady hand</em>.</h2>
+          <p class="section__lede">From the moment the manifest lands to the moment the tailgate closes, each stage has an owner, a clock and a paper trail.</p>
+        </header>
+
+        <ol class="steps" id="steps">
+          <li class="step reveal" data-step>
+            <span class="step__index" aria-hidden="true">1</span>
+            <div class="step__body">
+              <p class="step__when">T−72 h · Pre-arrival</p>
+              <h3 class="step__title">Manifest &amp; pre-clearance</h3>
+              <p class="step__text">Documents received three days before berthing. HS codes checked, duties estimated, declarations drafted while the vessel is still at sea.</p>
+            </div>
+          </li>
+          <li class="step reveal" data-step>
+            <span class="step__index" aria-hidden="true">2</span>
+            <div class="step__body">
+              <p class="step__when">Day 0 · Berth</p>
+              <h3 class="step__title">Berth &amp; discharge</h3>
+              <p class="step__text">The vessel takes her berth on the tide. Cranes work the bay plan; your containers are tallied straight into a reserved yard block.</p>
+            </div>
+          </li>
+          <li class="step reveal" data-step>
+            <span class="step__index" aria-hidden="true">3</span>
+            <div class="step__body">
+              <p class="step__when">Day 0–1 · Customs</p>
+              <h3 class="step__title">Clearance &amp; inspection</h3>
+              <p class="step__text">Declaration lodged the same day. If customs selects the box, our officers meet the inspection at the quay — no queue, no silence.</p>
+            </div>
+          </li>
+          <li class="step reveal" data-step>
+            <span class="step__index" aria-hidden="true">4</span>
+            <div class="step__body">
+              <p class="step__when">Day 1–2 · CFS</p>
+              <h3 class="step__title">Devan, sort &amp; stage</h3>
+              <p class="step__text">LCL cargo is devanned, checked against manifest, re-labelled and staged by route. Damage photographed and reported within the hour.</p>
+            </div>
+          </li>
+          <li class="step reveal" data-step>
+            <span class="step__index" aria-hidden="true">5</span>
+            <div class="step__body">
+              <p class="step__when">Day 2–3 · Delivery</p>
+              <h3 class="step__title">Gate-out &amp; final mile</h3>
+              <p class="step__text">Trucks take booked slots at Gate 4. You watch the run live; the consignee signs, the POD lands in your inbox, the file closes.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ TRACKING ============ -->
+    <section class="section" id="tracking">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Shipment tracking</p>
+          <h2 class="section__title">Where is my cargo, <em>exactly</em>?</h2>
+          <p class="section__lede">Search any container or bill of lading number. Milestones update as they happen on the terminal.</p>
+        </header>
+
+        <div class="track reveal">
+          <form class="track__form" id="track-form" autocomplete="off">
+            <label class="track__label" for="track-input">Container / B/L number</label>
+            <div class="track__row">
+              <input id="track-input" name="ref" type="text" placeholder="Try LBTU 482913-7" spellcheck="false" />
+              <button class="btn btn--solid" type="submit">Track shipment</button>
+            </div>
+            <div class="track__chips" role="group" aria-label="Sample shipments">
+              <span class="track__chips-label">Samples:</span>
+              <button type="button" class="chip" data-ref="LBTU 482913-7">LBTU 482913-7</button>
+              <button type="button" class="chip" data-ref="LB-20419">B/L LB-20419</button>
+              <button type="button" class="chip" data-ref="MSCU 771204-5">MSCU 771204-5</button>
+              <button type="button" class="chip" data-ref="LBTU 109226-8">LBTU 109226-8</button>
+            </div>
+          </form>
+
+          <div class="track__result" id="track-result" aria-live="polite">
+            <p class="track__hint">Enter a reference above — the full journey, vessel and berth will appear here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTERLUDE ============ -->
+    <section class="interlude" aria-label="A word from the harbourmaster">
+      <img src="assets/img/yard.jpg" alt="" loading="lazy" aria-hidden="true" />
+      <div class="interlude__scrim" aria-hidden="true"></div>
+      <blockquote class="interlude__quote container reveal">
+        <p>“A quiet port is not an idle one — it is a well-sequenced one.”</p>
+        <cite>Harbourmaster’s office · Terminal 7</cite>
+      </blockquote>
+    </section>
+
+    <!-- ============ VESSEL BOARD ============ -->
+    <section class="section section--dark" id="vessels">
+      <div class="container">
+        <header class="board-head reveal">
+          <div>
+            <p class="eyebrow eyebrow--brass">Terminal 7</p>
+            <h2 class="section__title">The vessel board.</h2>
+          </div>
+          <p class="board-head__updated">Updated <time id="board-clock">--:--:--</time></p>
+        </header>
+
+        <div class="board reveal" role="table" aria-label="Vessel schedule">
+          <div class="board__row board__row--head" role="row">
+            <span role="columnheader">Vessel / Voyage</span>
+            <span role="columnheader">Service</span>
+            <span role="columnheader">Berth</span>
+            <span role="columnheader">ETA / ETD</span>
+            <span role="columnheader">Status</span>
+          </div>
+          <div class="board__row" role="row">
+            <span role="cell" class="board__vessel">MV Selandia Star <small>v.118W</small></span>
+            <span role="cell">Asia Express</span>
+            <span role="cell">B-3</span>
+            <span role="cell">06:40 / 21:10</span>
+            <span role="cell"><span class="status status--work">Discharging</span></span>
+          </div>
+          <div class="board__row" role="row">
+            <span role="cell" class="board__vessel">MV Coral Meridian <small>v.022E</small></span>
+            <span role="cell">Reefer Loop</span>
+            <span role="cell">B-7</span>
+            <span role="cell">14:15 / —</span>
+            <span role="cell"><span class="status status--eta">Expected</span></span>
+          </div>
+          <div class="board__row" role="row">
+            <span role="cell" class="board__vessel">MV Nordwind Trader <small>v.407W</small></span>
+            <span role="cell">Feeder North</span>
+            <span role="cell">B-1</span>
+            <span role="cell">— / 22:05</span>
+            <span role="cell"><span class="status status--done">Departed</span></span>
+          </div>
+          <div class="board__row" role="row">
+            <span role="cell" class="board__vessel">MV Kestrel Bay <small>v.093W</small></span>
+            <span role="cell">Project Cargo</span>
+            <span role="cell">B-5</span>
+            <span role="cell">18:50 / 23:40</span>
+            <span role="cell"><span class="status status--work">Discharging</span></span>
+          </div>
+          <div class="board__row" role="row">
+            <span role="cell" class="board__vessel">MV Ostara <small>v.031W</small></span>
+            <span role="cell">Asia Express</span>
+            <span role="cell">B-9</span>
+            <span role="cell">23:20 / —</span>
+            <span role="cell"><span class="status status--eta">Expected</span></span>
+          </div>
+        </div>
+        <p class="board__note">Times in port local time (UTC+7). Berth assignments confirmed 24 h before arrival.</p>
+      </div>
+    </section>
+
+    <!-- ============ COLD CHAIN SPLIT ============ -->
+    <section class="split">
+      <div class="split__media reveal">
+        <img src="assets/img/reefer.jpg" alt="Refrigerated containers plugged in at the Lebat cold chain facility" loading="lazy" />
+      </div>
+      <div class="split__body">
+        <div class="container split__inner reveal">
+          <p class="eyebrow">Cold chain</p>
+          <h2 class="section__title">Cold is a promise, <em>not a setting</em>.</h2>
+          <p class="split__text">Two hundred and forty reefer plugs, each on its own monitored circuit. Temperature logged every five minutes, alarms answered by a person, not a mailbox — from the ship’s rail to the store’s door.</p>
+          <ul class="split__list">
+            <li>Pharma-grade ±0.5 °C logging with audit export</li>
+            <li>Priority plugs for perishables on every sailing</li>
+            <li>Pre-trip inspection certificates on request</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HAULAGE SPLIT ============ -->
+    <section class="split split--dark split--rev">
+      <div class="split__body">
+        <div class="container split__inner reveal">
+          <p class="eyebrow eyebrow--brass">Inland haulage</p>
+          <h2 class="section__title">The last mile, driven <em>like the first</em>.</h2>
+          <p class="split__text">Our own chassis and a vetted partner fleet leave Gate 4 on booked slots — never on a queue. You watch the run live; the consignee signs; the proof of delivery lands in your inbox before the truck is off the yard.</p>
+          <ul class="split__list">
+            <li>Booked gate slots — zero queue at Gate 4</li>
+            <li>Live GPS on every run, shared with your team</li>
+            <li>POD photographed and filed within minutes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="split__media reveal">
+        <img src="assets/img/haulage.jpg" alt="Container truck leaving the port at dusk" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- ============ RATES ============ -->
+    <section class="section" id="rates">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Rate card</p>
+          <h2 class="section__title">Plain rates, <em>no fine print</em>.</h2>
+          <p class="section__lede">Published quarterly, honoured to the cent. What we quote is what the invoice says.</p>
+        </header>
+
+        <div class="table-scroll reveal">
+          <table class="rates">
+            <thead>
+              <tr>
+                <th scope="col">Equipment</th>
+                <th scope="col">Discharge &amp; THC</th>
+                <th scope="col">Storage / day</th>
+                <th scope="col">Haulage, from</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">20′ General Purpose</th>
+                <td>$185</td>
+                <td>$14</td>
+                <td>$240</td>
+              </tr>
+              <tr>
+                <th scope="row">40′ GP / High Cube</th>
+                <td>$265</td>
+                <td>$18</td>
+                <td>$310</td>
+              </tr>
+              <tr>
+                <th scope="row">40′ Reefer (plugged)</th>
+                <td>$420</td>
+                <td>$46</td>
+                <td>$380</td>
+              </tr>
+              <tr>
+                <th scope="row">OOG / Project cargo</th>
+                <td colspan="3" class="rates__quote">Quoted per lift — <a href="#quote">send us the drawings</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="rates__note">First five storage days free on bonded transfers. Haulage within 40 km of Terminal 7.</p>
+      </div>
+    </section>
+
+    <!-- ============ QUOTE ============ -->
+    <section class="section section--paper" id="quote">
+      <div class="container quote">
+        <div class="quote__intro reveal">
+          <p class="eyebrow">Request a quote</p>
+          <h2 class="section__title">Tell us what’s <em>on the water</em>.</h2>
+          <p class="section__lede">A named operator replies within one working hour, port time. No call centres, no case numbers.</p>
+          <div class="quote__contact">
+            <p><span class="quote__contact-label">Operations desk</span><br /><a href="tel:+62215550107">+62 21 555 0107</a></p>
+            <p><span class="quote__contact-label">Email</span><br /><a href="mailto:ops@lebat.example">ops@lebat.example</a></p>
+            <p><span class="quote__contact-label">Address</span><br />Terminal 7, Harbour Road,<br />Port of Lebat</p>
+          </div>
+        </div>
+
+        <form class="quote__form reveal" id="quote-form" novalidate>
+          <div class="field">
+            <label for="q-name">Full name</label>
+            <input id="q-name" name="name" type="text" autocomplete="name" required />
+            <p class="field__error" hidden>Please tell us your name.</p>
+          </div>
+          <div class="field">
+            <label for="q-company">Company</label>
+            <input id="q-company" name="company" type="text" autocomplete="organization" required />
+            <p class="field__error" hidden>Company is required.</p>
+          </div>
+          <div class="field">
+            <label for="q-email">Work email</label>
+            <input id="q-email" name="email" type="email" autocomplete="email" required />
+            <p class="field__error" hidden>That email doesn’t look right.</p>
+          </div>
+          <div class="field">
+            <label for="q-cargo">Cargo type</label>
+            <select id="q-cargo" name="cargo" required>
+              <option value="" selected disabled>Select…</option>
+              <option>Dry goods (FCL)</option>
+              <option>Consolidated (LCL)</option>
+              <option>Reefer / perishables</option>
+              <option>Project / OOG</option>
+              <option>Vehicles &amp; rolling stock</option>
+            </select>
+            <p class="field__error" hidden>Choose a cargo type.</p>
+          </div>
+          <div class="field">
+            <label for="q-units">Containers (TEU)</label>
+            <input id="q-units" name="units" type="number" min="1" max="2000" inputmode="numeric" placeholder="e.g. 4" required />
+            <p class="field__error" hidden>Give us a TEU count.</p>
+          </div>
+          <div class="field field--wide">
+            <label for="q-notes">Anything else <span class="field__opt">(optional)</span></label>
+            <textarea id="q-notes" name="notes" rows="4" placeholder="Vessel, ETD, commodity, target delivery date…"></textarea>
+          </div>
+          <div class="field field--wide quote__submit">
+            <button class="btn btn--brass btn--wide" type="submit">Send request</button>
+            <p class="quote__fine">We reply within one working hour, 07:00–22:00 port time.</p>
+          </div>
+          <p class="quote__success" id="quote-success" hidden role="status">
+            <strong>Received.</strong> Your reference is <span id="quote-ref">—</span>. An operator will reply within the hour.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-foot">
+    <div class="container site-foot__inner">
+      <div class="site-foot__brand">
+        <p class="site-foot__name">Lebat Maritime</p>
+        <p class="site-foot__tag">Port import logistics, kept calm since 1962.</p>
+      </div>
+      <nav class="site-foot__nav" aria-label="Footer">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#tracking">Tracking</a>
+        <a href="#vessels">Vessel board</a>
+        <a href="#rates">Rates</a>
+        <a href="#quote">Quote</a>
+      </nav>
+      <p class="site-foot__fine">© <span id="year">2026</span> Lebat Maritime Logistics · Terminal 7, Harbour Road, Port of Lebat · A demonstration website.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

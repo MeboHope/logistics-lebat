@@ -1,0 +1,15 @@
+{
+  "name": "logistics-lebat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lebat Maritime — port import logistics website. Static site, no build step.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs",
+    "test": "node tests/smoke.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
+  }
+}
